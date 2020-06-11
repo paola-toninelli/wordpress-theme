@@ -53,6 +53,20 @@ endif; // samtheme_setup
 
 add_action( 'after_setup_theme', 'samtheme_setup' );
 
+
+function register_my_menus() {
+	register_nav_menus(
+	  array(
+		'primary' => __( 'Primary Menu', 'samtheme' ),
+		'secondary' => __( 'Secondary Menu', 'samtheme' ),
+		'aside' => __( 'Aside Menu', 'samtheme' ),
+		'footer' => __( 'Footer Menu', 'samtheme' )
+	   )
+	 );
+   }
+   add_action( 'init', 'register_my_menus' );
+  
+
 if (! function_exists('samtheme_register_scripts')):
 /**
  * Register and Enqueue Styles.
@@ -69,3 +83,10 @@ function samtheme_register_styles() {
 endif;
 
 add_action( 'wp_enqueue_scripts', 'samtheme_register_styles' );
+
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page();
+	
+}

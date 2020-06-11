@@ -1,86 +1,106 @@
-.section{
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    @include media-breakpoint-up(md){
-        padding-bottom: 3rem;
-        padding-top: 3rem;
+* {
+    outline: none!important;
+}
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    min-height: 100%;
+    @extend %no-scrollbar;
+       
+    @include media-breakpoint-down(sm) {
+        &.admin-bar main {
+            margin-top: 0px;
+        }
+        #wpadminbar {
+            display: none;
+        }
+    }
+
+    @include media-breakpoint-up(sm) {
+        &.admin-bar .fixed-top {
+            top: 46px;
+        }
+    }
+    
+    @include media-breakpoint-up(md) {
+        &.admin-bar .fixed-top {
+            top: 32px;
+        }
     }
 }
 
-.page-hero{
+.navbar-brand {
+    height: 40px;
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+.section-y-padding {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    @include media-breakpoint-up(md) { 
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+.page-hero {
     position: relative;
-    &::before{
+    background-size: cover;
+    background-position: center;
+    &::before {
         content: "";
         height: 100%;
         width: 100%;
         position: absolute;
-        top:0px;
+        top: 0px;
         left: 0px;
-        background-image: url('../../assets/pattern-hero.png');
-
+        // background-color: rgba($color: #000000, $alpha: 0.2);
+        background-image: url('#{$images-path}/pattern-hero.png');
     }
-    .page-hero-content{
-        min-height:336px ;
-        background-size: cover;
-        background-position: center;
-    }
-}
-
-nav{
-    height: 80px;
-    font-size: 1.2 rem;
-    font-weight: bold;
-}
-
-h2{
-    text-transform: uppercase;
-}
-
-.box-category{
-    .box-category-content{
-        min-height:300px ;
-        background-size: cover;
+    .page-hero-content {
+        min-height: 336px;
+        h1, h2, p {
+            color: $white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
     }
 }
 
-.blog-post{
-        height:300px ;
-        
-    }
-
-    #newsletter{
-        height: calc(1.5em + 1.5rem + 2px);
-        border: 1px solid white;
-
-    }
-
-
-#footer-red{
-    font-size: 0.7rem;
-    &.a {
-        color:white;
-        text-decoration: underline;
+.section-who-we-are {
+    position: relative;
+    img.img-who-we-are {
+        position: absolute;
+        top: 0px;
+        height: 100%;
+        width: auto;
     }
 }
 
-
-
-// Small devices (landscape phones, 576px and up)
-@include media-breakpoint-up(sm) { 
-
-}
-// Medium devices (tablets, 768px and up)
-@include media-breakpoint-up(md) { 
-
+.pagination {
+    width: 100%;
+    .nav-links {
+        margin: 0 auto;
+    }
 }
 
-// Large devices (desktops, 992px and up)
-@include media-breakpoint-up(lg) { 
+/**
+* Tease
+*/
 
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@include media-breakpoint-up(xl) { 
-
+// tease category
+.tease-category {
+    position: relative;
+    height: 275px;
+    @include media-breakpoint-up(md) {
+        height: 300px;
+    }
 }
