@@ -28,3 +28,21 @@
     width: auto;
 
 }
+
+.social-icon:hover{
+    opacity: 0.7;
+
+}
+
+footer .wpcf7-email{
+    border:none;
+    min-height: 30px;
+    max-width: 350px;
+    margin-right: 10px;
+    padding-left: 15px;
+
+}
+.wpcf7-email:focus {
+    border:1px solid black;
+  }
+

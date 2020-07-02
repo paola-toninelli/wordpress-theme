@@ -5,7 +5,7 @@
  * Contains the opening of the #site-footer div and all content after.
  *
  * @package WordPress
- * @subpackage Sam_Theme
+ * @subpackage paola_theme
  * @since 1.0.0
  */ 
 
@@ -38,16 +38,16 @@
                     </div>
                     <div class="col-lg-6 col-12">
                         <?php if ($facebook_url): ?>
-                                <a href="<?php echo $facebook_url;?>"> <img src="<?php echo $path_images; ?>facebook.png" alt="facebook" class="social-icon"></a>
+                                <a href="<?php echo $facebook_url;?>" target="_blanck"> <img src="<?php echo $path_images; ?>facebook.svg" alt="facebook" class="social-icon"></a>
                         <?php endif;?>
                         <?php if ($linkedin_url): ?>
-                                <a href="<?php echo $linkedin_url;?>"> <img src="<?php echo $path_images; ?>linkedin.png" alt="linkedin" class="social-icon"></a>
+                                <a href="<?php echo $linkedin_url;?>" target="_blanck"> <img src="<?php echo $path_images; ?>linkedin.svg" alt="linkedin" class="social-icon"></a>
                         <?php endif;?>
                         <?php if ($instagram_url): ?>
-                                <a href="<?php echo $instagram_url;?>"> <img src="<?php echo $path_images; ?>instagram.png" alt="instagram" class="social-icon"></a>
+                                <a href="<?php echo $instagram_url;?>" target="_blanck"> <img src="<?php echo $path_images; ?>instagram.svg" alt="instagram" class="social-icon"></a>
                         <?php endif;?>
                         <?php if ($youtube_url): ?>
-                                <a href="<?php echo $youtube_url;?>"> <img src="<?php echo $path_images; ?>youtube.png" alt="youtube" class="social-icon"></a>
+                                <a href="<?php echo $youtube_url;?>" target="_blanck"> <img src="<?php echo $path_images; ?>youtube.svg" alt="youtube" class="social-icon"></a>
                         <?php endif;?>
                     </div>
 
@@ -57,7 +57,7 @@
             <?php endif;?>
 
             <div class="container">
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col col-md-6 col-lg-4">
                         <!-- logo -->
                     <?php 
@@ -72,10 +72,10 @@
                         <?php
                                 $email = get_field('main_email', 'options');
                                 if($email): ?>
-                                <a href="mailto:<?php echo $email; ?>" class="px-3">info@nike.com</a>
+                                <a href="mailto:<?php echo $email; ?>" class="px-3"><?php echo $email;?></a>
                         <?php endif ?>
-                        <?php the_field('privacy_policy_link', 'options'); ?>
-                        <?php the_field('cookie_policy_link', 'options'); ?>
+                        <span class="px-3"><?php the_field('privacy_policy_link', 'options'); ?></span>
+                        <span class="px-3"><?php the_field('cookie_policy_link', 'options'); ?></span>
                         </div>      
                     </div>
                 </div>

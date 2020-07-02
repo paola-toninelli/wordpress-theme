@@ -16,12 +16,14 @@ if (is_category()){
 ?>
 
 <section>
-    <div class="container mt-3">
-    <div class="row">
-    <h1 class="text-primary text-uppercase">
-    <?php echo $archive_title?>
-    </h1>
-    
+<div class="container mt-3">
+      <div class="row">
+       <div class="col">
+         <h1 class="text-primary text-uppercase">
+            <?php echo $archive_title?>
+         </h1>
+         </div>
+      </div>
         <div class="row mt-5"> 
 
 

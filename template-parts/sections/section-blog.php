@@ -1,10 +1,10 @@
 <?php
  
  $args = array(
-     'post_per_page' => 4,
+     'posts_per_page' => 4,
      'post_type' => 'post',
      'post_status' => 'publish',
-     'orderby' => 'name',
+     'orderby' => 'date',
      'order'   => 'DESC',
 
    
@@ -19,8 +19,8 @@
     <div class="container">
         <div class="row"> 
 
-            <div class="col-12 mt-5 mb-5">
-                <h2>BLOG</h2>
+            <div class="col-12 mt-5 mb-3">
+                <h2 class="text-primary">BLOG</h2>
             </div>
 
 
@@ -48,7 +48,7 @@
 
 
         </div>
-        <div class="row mt-3"> 
+        <div class="row mt-5"> 
             <div class="col-12">
                 <a href="#" class="btn btn-primary text-uppercase rounded-0">Continua</a>   
             </div>       

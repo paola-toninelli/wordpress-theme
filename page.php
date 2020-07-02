@@ -5,7 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package WordPress
- * @subpackage Sam_Theme
+ * @subpackage paola_theme
  * @since 1.0.0
  */
 ?>
@@ -30,7 +30,7 @@ if ( have_posts() ) :
         <?php
     endwhile; 
 else:
-    _e('Sorry, no posts matched your criteria.','samtheme');
+    _e('Sorry, no posts matched your criteria.','paolatheme');
 endif; 
 ?>
 

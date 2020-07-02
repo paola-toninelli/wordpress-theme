@@ -70,7 +70,7 @@ body {
         min-height: 336px;
         h1, h2, p {
             color: $white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
         }
     }
 }
@@ -103,4 +103,27 @@ body {
     @include media-breakpoint-up(md) {
         height: 300px;
     }
+}
+
+//map
+.acf-map {
+    width: 100%;
+    height: 400px;
+    margin: 20px 0; 
+}
+
+// Fixes potential theme css conflict.
+.acf-map img {
+   max-width: inherit !important
+   ;}
+
+
+#tag a{
+    border: 1px solid;
+    padding:5px;
+}
+
+.wpcf7-form-control-wrap textarea{
+    height: 100px;
+    width: 350px;
 }

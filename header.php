@@ -5,7 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Sam_Theme
+ * @subpackage paola_theme
  * @since 1.0.0
  */
 
@@ -20,6 +20,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
 		<link rel="profile" href="https://gmpg.org/xfn/11">
+		<?php the_field('head_scripts','option')?>
 
 		<?php wp_head(); ?>
 

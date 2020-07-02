@@ -1,15 +1,15 @@
 <?php
 /**
- * Sam Theme functions and definitions
+ * Paola Theme functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package WordPress
- * @subpackage Sam_Theme
+ * @subpackage Paola_Theme
  * @since 1.0.0
  */
 
-if ( ! function_exists( 'samtheme_setup' ) ) :
+if ( ! function_exists( 'Paolatheme_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -17,13 +17,13 @@ if ( ! function_exists( 'samtheme_setup' ) ) :
 	 * before the init hook. The init hook is too late for some features, such as indicating
 	 * support post thumbnails.
 	 */
-	function samtheme_setup() {
+	function Paolatheme_setup() {
 	 
 		/**
 		 * Make theme available for translation.
 		 * Translations can be placed in the /languages/ directory.
 		 */
-		load_theme_textdomain( 'samtheme', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'Paolatheme', get_template_directory() . '/languages' );
 	 
 		/**
 		 * Add default posts and comments RSS feed links to <head>.
@@ -39,8 +39,8 @@ if ( ! function_exists( 'samtheme_setup' ) ) :
 		 * Add support for two custom navigation menus.
 		 */
 		register_nav_menus( array(
-			'primary'   => __( 'Primary Menu', 'samtheme' ),
-			'secondary' => __( 'Secondary Menu', 'samtheme' )
+			'primary'   => __( 'Primary Menu', 'Paolatheme' ),
+			'secondary' => __( 'Secondary Menu', 'Paolatheme' )
 		) );
 	 
 		/**
@@ -49,40 +49,43 @@ if ( ! function_exists( 'samtheme_setup' ) ) :
 		 */
 		add_theme_support( 'post-formats', array ( 'aside', 'gallery', 'quote', 'image', 'video' ) );
 	}
-endif; // samtheme_setup
+endif; // Paolatheme_setup
 
-add_action( 'after_setup_theme', 'samtheme_setup' );
+add_action( 'after_setup_theme', 'Paolatheme_setup' );
 
 
 function register_my_menus() {
 	register_nav_menus(
 	  array(
-		'primary' => __( 'Primary Menu', 'samtheme' ),
-		'secondary' => __( 'Secondary Menu', 'samtheme' ),
-		'aside' => __( 'Aside Menu', 'samtheme' ),
-		'footer' => __( 'Footer Menu', 'samtheme' )
+		'primary' => __( 'Primary Menu', 'Paolatheme' ),
+		'secondary' => __( 'Secondary Menu', 'Paolatheme' ),
+		'aside' => __( 'Aside Menu', 'Paolatheme' ),
+		'footer' => __( 'Footer Menu', 'Paolatheme' )
 	   )
 	 );
    }
    add_action( 'init', 'register_my_menus' );
   
 
-if (! function_exists('samtheme_register_scripts')):
+if (! function_exists('Paolatheme_register_scripts')):
 /**
  * Register and Enqueue Styles.
  */
-function samtheme_register_styles() {
+function Paolatheme_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
 	wp_enqueue_style( 'main', get_theme_file_uri('/assets/css/main.css'),array(), $theme_version );
-	wp_enqueue_script( 'main', get_theme_file_uri('/assets/js/main.js'),array(), $theme_version,true );
+
+	wp_enqueue_script('googlemap','https://maps.googleapis.com/maps/api/js?key=AIzaSyCLIT9gLHFO2KLv3xupBgOR5LtAD4wtg2Q', array(), $theme_version, true);
+
+	wp_enqueue_script( 'main', get_theme_file_uri('/assets/js/main.js'),array('googlemap','jquery'), $theme_version,true );
 	wp_enqueue_script( 'bootstrap', get_theme_file_uri('node_modules/bootstrap/dist/js/bootstrap.min.js'),array('jquery'), $theme_version,true );
 
 }
 endif;
 
-add_action( 'wp_enqueue_scripts', 'samtheme_register_styles' );
+add_action( 'wp_enqueue_scripts', 'Paolatheme_register_styles' );
 
 
 if( function_exists('acf_add_options_page') ) {
@@ -90,3 +93,40 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();
 	
 }
+
+/*
+*
+* Google Maps API key - ACF
+*
+*/
+
+function my_acf_google_map_api( $api ){
+    $api['key'] = 'AIzaSyCLIT9gLHFO2KLv3xupBgOR5LtAD4wtg2Q';
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+
+/**
+ * Add a sidebar.
+ */
+function wpdocs_theme_slug_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Main Sidebar', 'textdomain' ),
+        'id'            => 'sidebar-1',
+        'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'textdomain' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'wpdocs_theme_slug_widgets_init' );
+
+
+require_once( get_template_directory() . '/classes/recent-posts.php' );
+
+function register_custom_widgets() {
+	register_widget( 'My_Recent_Posts' );
+}
+add_action( 'widgets_init', 'register_custom_widgets' );

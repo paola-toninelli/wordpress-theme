@@ -10,7 +10,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package WordPress
- * @subpackage Sam_Theme
+ * @subpackage paola_theme
  * @since 1.0.0
  */
 ?>

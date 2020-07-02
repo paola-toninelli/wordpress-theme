@@ -4,7 +4,7 @@ $who_we_are= get_field('who_we_are');
 if($who_we_are):
 ?>
 
-<section class="section section-who-we-are">
+<section class="section section-who-we-are" id="chi-siamo">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 section-y-padding">
@@ -15,7 +15,7 @@ if($who_we_are):
                     <div><?php echo $who_we_are['content'] ?></div>
                 <?php endif; ?>
                 <?php if(isset($who_we_are['call_to_action']) && $who_we_are['call_to_action'] ):?>
-                    <a href="<?php echo $who_we_are['call_to_action']['url'] ?>" target="<?php echo $who_we_are['call_to_action']['target'] ?>" class="btn btn-primary text-uppercase btn-lg rounded-0"><?php echo $who_we_are['call_to_action']['title'] ?></a>
+                    <a href="<?php echo $who_we_are['call_to_action']['url'] ?>" target="<?php echo $who_we_are['call_to_action']['target'] ?>" class="btn btn-primary text-uppercase btn-lg rounded-0 mt-4"><?php echo $who_we_are['call_to_action']['title'] ?></a>
                 <?php endif; ?>
             </div>
             <div class="col-12 col-md-6 d-none d-md-block">
@@ -27,12 +27,11 @@ if($who_we_are):
                 $image_srcset = wp_get_attachment_image_srcset( $image['id'], 'large' );
             ?>
                 <img 
-                    class="img-who-we-are lazy d-none d-md-block"
-                    src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg"
-                    data-src="<?php echo $image_src; ?>" 
-                    data-srcset="<?php echo $image_srcset; ?>"
+                    class="img-who-we-are d-none d-md-block"
+                    src="<?php echo $image_src; ?>" 
+                    srcset="<?php echo $image_srcset; ?>"
                     sizes="100vw"
-                    alt="maglietta nike">
+                    alt="<?php echo $image['alt'];?>">
             <?php endif; ?>
             </div>
         </div>
