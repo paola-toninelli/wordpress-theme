@@ -75,6 +75,7 @@ class My_Recent_Posts extends WP_Widget {
 					'no_found_rows'       => true,
 					'post_status'         => 'publish',
 					'ignore_sticky_posts' => true,
+					'post__not_in' => array (get_the_ID()),
 				),
 				$instance
 			)
@@ -90,11 +91,16 @@ class My_Recent_Posts extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 		?>
-		<ul>
-			<?php foreach ( $r->posts as $recent_post ) : ?>
-				<?php get_template_part('template-parts/teases/tease-post')?>
-			<?php endforeach; ?>
-		</ul>
+				<?php 
+					if ( $r->have_posts() ):
+						while ( $r->have_posts() ):
+							$r->the_post(); 
+							get_template_part('template-parts/teases/tease-post');
+						endwhile;
+					 endif;
+
+					 wp_reset_postdata();
+			?>
 		<?php
 		echo $args['after_widget'];
 	}
