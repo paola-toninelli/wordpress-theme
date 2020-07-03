@@ -53,6 +53,7 @@ endif; // Paolatheme_setup
 
 add_action( 'after_setup_theme', 'Paolatheme_setup' );
 
+//menù
 
 function register_my_menus() {
 	register_nav_menus(
@@ -87,6 +88,7 @@ endif;
 
 add_action( 'wp_enqueue_scripts', 'Paolatheme_register_styles' );
 
+//ACF
 
 if( function_exists('acf_add_options_page') ) {
 	
@@ -110,6 +112,7 @@ add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 /**
  * Add a sidebar.
  */
+
 function wpdocs_theme_slug_widgets_init() {
     register_sidebar( array(
         'name'          => __( 'Main Sidebar', 'textdomain' ),
@@ -123,6 +126,7 @@ function wpdocs_theme_slug_widgets_init() {
 }
 add_action( 'widgets_init', 'wpdocs_theme_slug_widgets_init' );
 
+//custum recent post widget
 
 require_once( get_template_directory() . '/classes/recent-posts.php' );
 

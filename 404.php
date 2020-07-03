@@ -1,41 +1,38 @@
 <?php
-/**
- * The template for displaying the 404 template in the Twenty Twenty theme.
- *
- * @package WordPress
- * @subpackage paola_theme
- * @since 1.0.0
- */
+   /**
+    * @package WordPress
+    * @subpackage paola_theme
+    * @since 1.0.0
+    */
 
-get_header();
-?>
-
+    $template_directory = get_template_directory_uri();
+    $path_images = $template_directory . '/assets/images/';
+   
+   get_header();
+   ?>
 <main id="site-content" role="main">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="section-inner thin error404-content">
-
-                    <h1 class="entry-title"><?php _e( 'Page Not Found', 'paola-theme' ); ?></h1>
-
-                    <div class="intro-text"><p><?php _e( 'The page you were looking for could not be found. It might have been removed, renamed, or did not exist in the first place.', 'paola-theme' ); ?></p></div>
-
-                    <?php
-                    get_search_form(
-                        array(
-                            'label' => __( '404 not found', 'paola-theme' ),
-                        )
-                    );
-                    ?>
-
-                </div><!-- .section-inner -->
+   <div class="container text-center">
+      <div class="row mt-3">
+         <div class="col">
+            <div class="section-inner thin error404-content">
+            <h1 class="entry-title text-primary"><?php _e( 'OOPS!', 'paola-theme' ); ?></h1>
+            <img src="<?php echo $path_images; ?>404.png" alt="404">
+               <h2><?php _e( 'Pagina non trovata', 'paola-theme' ); ?></h2>
+               <div class="intro-text mt-3">
+                  <p><?php _e( 'La pagina che stavi cercando non è stata trovata. Potrebbe essere stata rimossa, rinominata o non esistere.', 'paola-theme' ); ?></p>
+               </div>
+               
+               <?php
+                  get_search_form(
+                      array(
+                          'label' => __( '404 not found', 'paola-theme' ),
+                      )
+                  );
+                  ?>
             </div>
-        </div>
-    </div>
+         </div>
+      </div>
+   </div>
+</main>
 
-	
-
-</main><!-- #site-content -->
-
-<?php
-get_footer();?>
+<?php get_footer();?>

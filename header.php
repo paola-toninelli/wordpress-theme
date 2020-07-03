@@ -1,7 +1,5 @@
 <?php
 /**
- * Header file for the Sam Theme WordPress default theme.
- *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress

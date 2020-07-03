@@ -2,7 +2,7 @@
     $post_date= get_the_date();
 ?>
 
-<article class="tease"-<?php echo $post->post_type?>">
+<article class="tease mb-5"-<?php echo $post->post_type?>">
 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                                     <?php the_post_thumbnail( 'full', array('class' => 'img-fluid')); ?>
                                 </a>

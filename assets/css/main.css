@@ -10215,4 +10215,13 @@ body {
   width: 350px;
 }
 
+.entry-title {
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+.error404-content img {
+  max-height: 300px;
+}
+
 /*# sourceMappingURL=main.css.map */

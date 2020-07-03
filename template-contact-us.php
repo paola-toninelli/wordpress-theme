@@ -1,12 +1,11 @@
 <?php
    /**
-    * Template Name: Contact Us
-    * 
-    * https://developer.wordpress.org/themes/template-files-section/page-template-files/
-    *
+    * Template Name: Contatti
    */
-   ?>
+?>
+
 <?php get_header(); ?>
+
 <div class="container section-y-padding">
    <?php 
       if ( have_posts() ) {
@@ -39,7 +38,8 @@
    </div>
 </div>
 <?php
-   } // end while
-   } // end if
-   ?>
+    } 
+      } 
+?>
+
 <?php get_footer(); ?>

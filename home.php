@@ -1,3 +1,9 @@
+<?php
+    /**
+     * Pagina blog
+   */
+?>
+
 <?php get_header();?>
 <?php
    $archive_title = __('Blog','theme');
@@ -12,7 +18,7 @@
          </div>
       </div>
       <div class="row mt-5">
-            <?php  // The Loop
+            <?php  
                if ( have_posts() ) {
                  
                    while (have_posts() ) {
@@ -24,9 +30,9 @@
                }
                
                } else {
-               // no posts found
+               
                }
-               /* Restore original Post Data */
+               
                wp_reset_postdata();
                ?>
       </div>
