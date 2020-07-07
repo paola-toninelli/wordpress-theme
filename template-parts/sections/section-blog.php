@@ -10,6 +10,10 @@
    // The Query
    $the_query = new WP_Query( $args );
    
+   $template_directory = get_template_directory_uri();
+
+   $blog= get_field('blog');
+   
    ?>
 <section>
    <div class="container">
@@ -35,9 +39,11 @@
             wp_reset_postdata();
             ?>
       </div>
-      <div class="row mt-5">
+      <div class="row">
          <div class="col-12">
-            <a href="#" class="btn btn-primary text-uppercase rounded-0">Continua</a>   
+         <?php if(isset($blog['call_to_action']) && $blog['call_to_action'] ):?>
+            <a href="<?php echo $blog['call_to_action']['url'] ?>" target="<?php echo $blog['call_to_action']['target'] ?>" class="btn btn-primary text-uppercase btn-lg rounded-0 mt-4"><?php echo $blog['call_to_action']['title'] ?></a>
+            <?php endif; ?>
          </div>
       </div>
    </div>

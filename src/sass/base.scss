@@ -136,7 +136,12 @@ body {
 
 .error404-content{
     img{
-        max-height:300px
+        max-height:300px;
+        max-width:90vw;
     }
    
+}
+
+.wpcf7-mail-sent-ng, .wpcf7-mail-sent-ok{
+    color:black;
 }

@@ -28,6 +28,8 @@
       </div>
    </div>
    <div class="mt-3">
+
+</form>
    <?php
             get_search_form();
             ?>
